@@ -1,0 +1,108 @@
+/* Reset & base styles */
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Roboto', 'Tahoma', 'Geneva', sans-serif;
+    background: #f6f8fb;
+    color: #203043;
+  }
+  
+  body {
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  h1 { font-size: 2.05rem; }
+  h2 { font-size: 1.41rem; }
+  h3 { font-size: 1.12rem; }
+  h4 { font-size: 1.07rem; }
+  
+  a {
+    color: #1e4278;
+    text-decoration: none;
+    transition: color 0.18s;
+  }
+  a:hover, a:focus {
+    color: #3877e9;
+    text-decoration: underline;
+  }
+  
+  /* Buttons and forms */
+  button, .btn {
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  /* Layout helpers */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.2rem;
+  }
+  
+  .shadow {
+    box-shadow: 0 2px 8px rgba(7,34,66,0.04);
+  }
+  
+  .rounded {
+    border-radius: 8px;
+  }
+  
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Utilities */
+  .mt-1 { margin-top: 1rem; }
+  .mb-1 { margin-bottom: 1rem; }
+  .mt-2 { margin-top: 2rem; }
+  .mb-2 { margin-bottom: 2rem; }
+  .mx-auto { margin-left: auto; margin-right: auto; }
+  .text-center { text-align: center; }
+  
+  /* Scrollbar styling for modern browsers */
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #fafdff;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c4d1e6;
+    border-radius: 5px;
+  }
+  
+  /* Override for sidebars, main sections, etc. */
+  @media (max-width: 900px) {
+    .sidebar {
+      display: none;
+    }
+    .main-content {
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 0.5rem;
+    }
+  }
+  
