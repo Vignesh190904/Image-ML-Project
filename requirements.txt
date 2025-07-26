@@ -9,3 +9,4 @@ joblib
 werkzeug
 gunicorn
 tqdm
+flask-cors
