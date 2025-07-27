@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Image-ML-Project/static/css/main.6c5340cc.css",
+    "main.js": "/Image-ML-Project/static/js/main.75b4ddfe.js",
+    "index.html": "/Image-ML-Project/index.html",
+    "main.6c5340cc.css.map": "/Image-ML-Project/static/css/main.6c5340cc.css.map",
+    "main.75b4ddfe.js.map": "/Image-ML-Project/static/js/main.75b4ddfe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c5340cc.css",
+    "static/js/main.75b4ddfe.js"
+  ]
+}
