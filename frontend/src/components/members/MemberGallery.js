@@ -1,49 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getStaticAssetUrl } from '../../api/api';
 import './MemberGallery.css';
 
-// You might want to fetch this data from your backend;
-// for now, use a static array of objects describing members and their images.
+// Member data with hosted backend URLs
 const MEMBERS = [
   {
     name: "Lionel Messi",
-    image: "http://localhost:5000/static/members/Messi.jpg"
+    image: "static/members/Messi.jpg"
   },
   {
     name: "Maria Sharapova",
-    image: "http://localhost:5000/static/members/Maria.jpg"
+    image: "static/members/Maria.jpg"
   },
   {
     name: "Roger Federer",
-    image: "http://localhost:5000/static/members/Roger.jpg"
+    image: "static/members/Roger.jpg"
   },
   {
     name: "Serena Williams",
-    image: "http://localhost:5000/static/members/Serena.jpg"
+    image: "static/members/Serena.jpg"
   },
   {
     name: "Virat Kohli",
-    image: "http://localhost:5000/static/members/Virat.jpg"
+    image: "static/members/Virat.jpg"
   }
   // Add more as needed
 ];
 
-const MemberGallery = () => (
-  <div className="member-gallery">
-    <h3 className="gallery-title">Example Members</h3>
-    <div className="gallery-grid">
-      {MEMBERS.map((member) => (
-        <div className="gallery-card" key={member.name}>
-          <img
-            src={member.image}
-            alt={member.name}
-            className="gallery-image"
-            loading="lazy"
-          />
-          <div className="gallery-label">{member.name}</div>
-        </div>
-      ))}
+const MemberGallery = () => {
+  const [imageErrors, setImageErrors] = useState({});
+
+  const handleImageError = (memberName) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [memberName]: true
+    }));
+  };
+
+  return (
+    <div className="member-gallery">
+      <h3 className="gallery-title">Example Members</h3>
+      <div className="gallery-grid">
+        {MEMBERS.map((member) => (
+          <div className="gallery-card" key={member.name}>
+            {imageErrors[member.name] ? (
+              <div className="gallery-image-error">
+                <span>Image not available</span>
+              </div>
+            ) : (
+              <img
+                src={getStaticAssetUrl(member.image)}
+                alt={member.name}
+                className="gallery-image"
+                loading="lazy"
+                onError={() => handleImageError(member.name)}
+              />
+            )}
+            <div className="gallery-label">{member.name}</div>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default MemberGallery;

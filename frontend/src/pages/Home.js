@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/layout/Header';
 import ImageUpload from '../components/ImageUpload/ImageUpload';
 import PredictionResult from '../components/PredictionResult/PredictionResult';
 import MemberGallery from '../components/members/MemberGallery';
 import Loader from '../components/ui/Loader';
 import Footer from '../components/layout/Footer';
-
-const API_URL = process.env.REACT_APP_API_URL + '/predict';
+import { predictImage, checkBackendHealth } from '../api/api';
 
 const Home = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -15,6 +14,16 @@ const Home = () => {
   const [confidences, setConfidences] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [backendStatus, setBackendStatus] = useState('checking');
+
+  // Check backend health on component mount
+  useEffect(() => {
+    const checkHealth = async () => {
+      const isHealthy = await checkBackendHealth();
+      setBackendStatus(isHealthy ? 'online' : 'offline');
+    };
+    checkHealth();
+  }, []);
 
   const handleImageSelect = (file) => {
     setSelectedFile(file);
@@ -34,27 +43,15 @@ const Home = () => {
     setError('');
     setPrediction('');
     setConfidences([]);
+    
     try {
-      const formData = new FormData();
-      formData.append('file', file);
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        body: formData
-      });
-      let data;
-      try {
-        data = await response.json();
-      } catch (jsonErr) {
-        throw new Error('Invalid response from server.');
-      }
-      if (!response.ok) {
-        throw new Error(data.error || 'Prediction failed. Please try again.');
-      }
-      setPrediction(data.predicted_class || '');
-      setConfidences(data.confidences || []);
+      const result = await predictImage(file);
+      setPrediction(result.predicted_class || '');
+      setConfidences(result.confidences || []);
     } catch (err) {
       setError(err.message || 'Something went wrong during prediction.');
     }
+    
     setLoading(false);
   };
 
@@ -65,7 +62,25 @@ const Home = () => {
         <h1 style={{ color: '#203043', fontWeight: 700, marginBottom: '1.55rem', textAlign: 'center' }}>
           Celebrity Image Classifier
         </h1>
-        <ImageUpload onImageSelect={handleImageSelect} disabled={loading} />
+        
+        {/* Backend Status Indicator */}
+        {backendStatus === 'checking' && (
+          <div style={{ marginBottom: '1rem', padding: '0.5rem 1rem', backgroundColor: '#fff3cd', color: '#856404', borderRadius: '4px', fontSize: '0.9rem' }}>
+            🔍 Checking backend connection...
+          </div>
+        )}
+        {backendStatus === 'offline' && (
+          <div style={{ marginBottom: '1rem', padding: '0.5rem 1rem', backgroundColor: '#f8d7da', color: '#721c24', borderRadius: '4px', fontSize: '0.9rem' }}>
+            ⚠️ Backend is currently offline. Predictions may not work.
+          </div>
+        )}
+        {backendStatus === 'online' && (
+          <div style={{ marginBottom: '1rem', padding: '0.5rem 1rem', backgroundColor: '#d4edda', color: '#155724', borderRadius: '4px', fontSize: '0.9rem' }}>
+            ✅ Backend is online and ready
+          </div>
+        )}
+        
+        <ImageUpload onImageSelect={handleImageSelect} disabled={loading || backendStatus === 'offline'} />
         <PredictionResult
           prediction={prediction}
           confidences={confidences}

@@ -59,6 +59,23 @@
     background: #f0f4fb;
 }
 
+.gallery-image-error {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ea5a47;
+    margin-bottom: 0.4rem;
+    background: #f8d7da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #721c24;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
 .gallery-label {
     margin-top: 0.3rem;
     font-size: 1rem;

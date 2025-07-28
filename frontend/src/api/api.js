@@ -1,5 +1,23 @@
-const BASE_URL =
-  process.env.REACT_APP_API_URL || 'https://image-ml-project.onrender.com/api';
+import { getBaseUrl, getApiUrl } from '../config/api';
+
+/**
+ * Check if the backend is accessible and running.
+ * @returns {Promise<boolean>}
+ */
+export async function checkBackendHealth() {
+  try {
+    const response = await fetch(getApiUrl('/api/health'), {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.ok;
+  } catch (error) {
+    console.error('Backend health check failed:', error);
+    return false;
+  }
+}
 
 /**
  * Upload an image and receive prediction results.
@@ -10,7 +28,7 @@ export async function predictImage(file) {
   const formData = new FormData();
   formData.append('file', file);
 
-  const response = await fetch(`${BASE_URL}/predict`, {
+  const response = await fetch(getApiUrl('/api/predict'), {
     method: 'POST',
     body: formData,
   });
@@ -21,4 +39,12 @@ export async function predictImage(file) {
   }
 
   return response.json();
+}
+
+/**
+ * Get the base URL for static assets (member images).
+ * @returns {string}
+ */
+export function getStaticAssetUrl(path) {
+  return `${getBaseUrl()}/${path}`;
 }
