@@ -1,0 +1,3 @@
+# Redirect from subdirectory to root
+/Image-ML-Project/* https://vignesh190904.github.io/:splat 301
+/Image-ML-Project https://vignesh190904.github.io/ 301 
