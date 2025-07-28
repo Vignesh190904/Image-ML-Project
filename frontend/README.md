@@ -64,13 +64,13 @@ REACT_APP_API_URL=https://image-ml-project.onrender.com
    npm run build
    ```
 
-## 🌐 Local Development
+## 🌐 Live Site
 
-The app runs at: **http://localhost:3000/**
+The app is live at: **https://Vignesh190904.github.io/Image-ML-Project/**
 
 - ✅ Direct access to home page
-- ✅ No subdirectory routing
-- ✅ Clean URL structure
+- ✅ Working backend integration
+- ✅ Health monitoring system
 
 ## 📡 API Endpoints
 
@@ -112,12 +112,8 @@ frontend/
 
 ## 🚀 Deployment
 
-This frontend can be deployed to:
-
-- **Netlify**: Connect your GitHub repo
-- **Vercel**: Automatic deployments from Git
-- **GitHub Pages**: Use `npm run deploy`
-- **Firebase Hosting**: Use Firebase CLI
+This frontend is deployed to GitHub Pages at:
+**https://Vignesh190904.github.io/Image-ML-Project/**
 
 ## 🔧 Development
 
@@ -142,7 +138,7 @@ This frontend can be deployed to:
 - Member images are served from the backend's static directory
 - CORS is enabled on the backend for cross-origin requests
 - The application includes comprehensive error handling for network issues
-- The app runs at the root URL `http://localhost:3000/` for local development
+- The app is deployed at `https://Vignesh190904.github.io/Image-ML-Project/`
 
 ## 🤝 Contributing
 
