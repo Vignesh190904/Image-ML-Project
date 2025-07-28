@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.58d1c048.css",
-    "main.js": "/static/js/main.8e19dbbf.js",
-    "index.html": "/index.html",
-    "main.58d1c048.css.map": "/static/css/main.58d1c048.css.map",
-    "main.8e19dbbf.js.map": "/static/js/main.8e19dbbf.js.map"
+    "main.css": "/Image-ML-Project/static/css/main.58d1c048.css",
+    "main.js": "/Image-ML-Project/static/js/main.8e19dbbf.js",
+    "index.html": "/Image-ML-Project/index.html",
+    "main.58d1c048.css.map": "/Image-ML-Project/static/css/main.58d1c048.css.map",
+    "main.8e19dbbf.js.map": "/Image-ML-Project/static/js/main.8e19dbbf.js.map"
   },
   "entrypoints": [
     "static/css/main.58d1c048.css",
