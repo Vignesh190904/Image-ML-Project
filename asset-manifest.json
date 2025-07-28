@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Image-ML-Project/static/css/main.6c5340cc.css",
-    "main.js": "/Image-ML-Project/static/js/main.0a7182b8.js",
+    "main.css": "/Image-ML-Project/static/css/main.48597d66.css",
+    "main.js": "/Image-ML-Project/static/js/main.4e0754de.js",
     "index.html": "/Image-ML-Project/index.html",
-    "main.6c5340cc.css.map": "/Image-ML-Project/static/css/main.6c5340cc.css.map",
-    "main.0a7182b8.js.map": "/Image-ML-Project/static/js/main.0a7182b8.js.map"
+    "main.48597d66.css.map": "/Image-ML-Project/static/css/main.48597d66.css.map",
+    "main.4e0754de.js.map": "/Image-ML-Project/static/js/main.4e0754de.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c5340cc.css",
-    "static/js/main.0a7182b8.js"
+    "static/css/main.48597d66.css",
+    "static/js/main.4e0754de.js"
   ]
 }
