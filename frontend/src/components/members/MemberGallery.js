@@ -1,39 +1,32 @@
 import React from 'react';
 import './MemberGallery.css';
 
-// Import member images
-import MessiImage from './members images/Messi.png';
-import MariaImage from './members images/Maria.png';
-import RogerImage from './members images/Roger.png';
-import SerenaImage from './members images/Serena.png';
-import ViratImage from './members images/Virat.png';
-
-// Member data with imported images
+// Member data with absolute URLs for GitHub Pages
 const MEMBERS = [
   {
     name: "Lionel Messi",
     description: "Football Legend",
-    image: MessiImage
+    image: "https://vignesh190904.github.io/members/Messi.png"
   },
   {
     name: "Maria Sharapova",
     description: "Tennis Champion",
-    image: MariaImage
+    image: "https://vignesh190904.github.io/members/Maria.png"
   },
   {
     name: "Roger Federer",
     description: "Tennis Legend",
-    image: RogerImage
+    image: "https://vignesh190904.github.io/members/Roger.png"
   },
   {
     name: "Serena Williams",
     description: "Tennis Champion",
-    image: SerenaImage
+    image: "https://vignesh190904.github.io/members/Serena.png"
   },
   {
     name: "Virat Kohli",
     description: "Cricket Star",
-    image: ViratImage
+    image: "https://vignesh190904.github.io/members/Virat.png"
   }
 ];
 
@@ -50,6 +43,7 @@ const MemberGallery = () => {
                 alt={member.name}
                 className="gallery-image"
                 onError={(e) => {
+                  console.log('Image failed to load:', member.image);
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'flex';
                 }}
