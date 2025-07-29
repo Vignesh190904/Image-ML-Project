@@ -8,7 +8,7 @@ const NotFound = () => {
   const navigate = useNavigate();
 
   const handleVisitProject = () => {
-    navigate('/');
+    navigate('/home');
   };
 
   return (

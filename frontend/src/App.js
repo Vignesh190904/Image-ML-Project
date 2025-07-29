@@ -9,9 +9,9 @@ import Landing from './pages/Landing';
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Landing />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/landing" element={<Landing />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
