@@ -1,62 +1,42 @@
-import React, { useState } from 'react';
-import { getStaticAssetUrl } from '../../api/api';
+import React from 'react';
 import './MemberGallery.css';
 
-// Member data with hosted backend URLs
+// Member data with placeholder content
 const MEMBERS = [
   {
     name: "Lionel Messi",
-    image: "static/members/Messi.jpg"
+    description: "Football Legend"
   },
   {
     name: "Maria Sharapova",
-    image: "static/members/Maria.jpg"
+    description: "Tennis Champion"
   },
   {
     name: "Roger Federer",
-    image: "static/members/Roger.jpg"
+    description: "Tennis Legend"
   },
   {
     name: "Serena Williams",
-    image: "static/members/Serena.jpg"
+    description: "Tennis Champion"
   },
   {
     name: "Virat Kohli",
-    image: "static/members/Virat.jpg"
+    description: "Cricket Star"
   }
-  // Add more as needed
 ];
 
 const MemberGallery = () => {
-  const [imageErrors, setImageErrors] = useState({});
-
-  const handleImageError = (memberName) => {
-    setImageErrors(prev => ({
-      ...prev,
-      [memberName]: true
-    }));
-  };
-
   return (
     <div className="member-gallery">
       <h3 className="gallery-title">Example Members</h3>
       <div className="gallery-grid">
         {MEMBERS.map((member) => (
           <div className="gallery-card" key={member.name}>
-            {imageErrors[member.name] ? (
-              <div className="gallery-image-error">
-                <span>Image not available</span>
-              </div>
-            ) : (
-              <img
-                src={getStaticAssetUrl(member.image)}
-                alt={member.name}
-                className="gallery-image"
-                loading="lazy"
-                onError={() => handleImageError(member.name)}
-              />
-            )}
+            <div className="gallery-placeholder">
+              <div className="placeholder-icon">👤</div>
+            </div>
             <div className="gallery-label">{member.name}</div>
+            <div className="gallery-description">{member.description}</div>
           </div>
         ))}
       </div>
