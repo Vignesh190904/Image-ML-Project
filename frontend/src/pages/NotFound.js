@@ -16,7 +16,7 @@ const NotFound = () => {
       <Header />
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', maxWidth: 700, margin: '0 auto', padding: '2.2rem 1.5rem 3.5rem 1.5rem', boxSizing: 'border-box' }}>
         <h1 style={{ color: '#ea5a47', fontWeight: 800, marginBottom: '0.8rem', fontSize: '2.2rem', textAlign: 'center' }}>
-          404 - Page Not Found
+          Welcome to my ML Project
         </h1>
         <p style={{ color: '#355', fontSize: '1.10rem', marginBottom: '2.2rem', textAlign: 'center' }}>
           The page you're looking for doesn't exist or has been moved.
