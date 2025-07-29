@@ -2,7 +2,7 @@
   "name": "ML Project",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://Vignesh190904.github.io/Image-ML-Project",
+  "homepage": "https://vignesh190904.github.io/Image-ML-Project",
   "proxy": "http://localhost:5000",
   "dependencies": {
     "react": "^18.2.0",
